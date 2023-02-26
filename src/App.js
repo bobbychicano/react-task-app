@@ -1,14 +1,16 @@
 // Logic and state
 
-import "./App.css";
 import React from "react";
-import { Input, Submit } from "./components/Overview.js";
+import { Input, Submit, TaskList } from "./components/Overview.js";
 
 function App() {
+  // state variables go here?
+
   return (
     <div className="App">
-      <Input value="Some text" />
+      <Input />
       <Submit />
+      <TaskList task="An Array" />
     </div>
   );
 }

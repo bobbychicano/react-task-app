@@ -6,6 +6,11 @@ import { Component } from "react";
 class Input extends Component {
   constructor(props) {
     super(props);
+    this.state = "placeholder text";
+  }
+
+  saveTask() {
+    this.setState(//An Object, or you can use a version of set state that accepts an arrow function);
   }
 
   render() {
@@ -13,10 +18,13 @@ class Input extends Component {
       <div>
         <label for="newTask">Task: </label>
         <input
+          //   onChange=""
           type="text"
+          size="40"
           id="newTask"
           name="myInput"
-          value={this.props.value}
+          //   value={this.state}
+          onChange={this.saveTask}
         ></input>
       </div>
     );
@@ -33,4 +41,18 @@ class Submit extends Component {
   }
 }
 
-export { Input, Submit };
+class TaskList extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <ul>{this.props.task}</ul>
+      </div>
+    );
+  }
+}
+
+export { Input, Submit, TaskList };
