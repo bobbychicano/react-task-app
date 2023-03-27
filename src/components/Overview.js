@@ -2,29 +2,36 @@
 
 import React from "react";
 import { Component } from "react";
+import { useState } from "react";
 
 class Input extends Component {
   constructor(props) {
     super(props);
-    this.state = "placeholder text";
+    this.state = { value: "" };
   }
 
-  saveTask() {
-    this.setState(//An Object, or you can use a version of set state that accepts an arrow function);
-  }
+  //   saveTask() {
+  //     this.setState((state, props) => {
+  //       //   state + state?
+  //     });
+  //   }
 
   render() {
+    const { value } = this.state;
+
     return (
       <div>
         <label for="newTask">Task: </label>
         <input
-          //   onChange=""
           type="text"
           size="40"
           id="newTask"
           name="myInput"
-          //   value={this.state}
-          onChange={this.saveTask}
+          value={value}
+          placeholder="Type a task here..."
+          onChange={(e) => {
+            this.setState({ value: e.target.value });
+          }}
         ></input>
       </div>
     );
