@@ -1,19 +1,31 @@
 // Logic and state
 
+import { render } from "@testing-library/react";
 import React from "react";
+import { Component } from "react";
+import { useState } from "react";
 import { Input, Submit, TaskList } from "./components/Overview.js";
 
-function App() {
-  // state variables go here?
-  // Why would the state of the value be here? So that it flows down to its child component and what?
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: "" };
+  }
 
-  return (
-    <div className="App">
-      <Input />
-      <Submit />
-      <TaskList task="An Array" />
-    </div>
-  );
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({ value: e.target.value });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Input value={this.state.value} onChange={this.handleChange} />
+        <Submit />
+        <TaskList task="An Array" />
+      </div>
+    );
+  }
 }
 
 export default App;

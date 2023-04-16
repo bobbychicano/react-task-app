@@ -8,15 +8,7 @@ import { useState } from "react";
 class Input extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
   }
-
-  //   saveTask() {
-  //   }
-
-  handleChange = (e) => {
-    this.setState({ value: e.target.value });
-  };
 
   render() {
     return (
@@ -27,9 +19,9 @@ class Input extends Component {
           size="40"
           id="newTask"
           name="myInput"
-          value={this.value}
+          value={this.props.value}
           placeholder="Type a task here..."
-          onChange={this.handleChange}
+          onChange={this.props.onChange}
         ></input>
       </div>
     );
@@ -43,11 +35,13 @@ class Submit extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
+    // take the current value inside the input field and save it to an array that will render it as HTML
+    // clear the input field
   };
 
   render() {
     return (
-      <button type="submit" onClick={this.handleClick}>
+      <button type="button" onClick={this.handleClick}>
         Submit
       </button>
     );
