@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 // Display tasks
 
 import React from "react";
@@ -11,14 +12,13 @@ class Input extends Component {
   }
 
   //   saveTask() {
-  //     this.setState((state, props) => {
-  //       //   state + state?
-  //     });
   //   }
 
-  render() {
-    const { value } = this.state;
+  handleChange = (e) => {
+    this.setState({ value: e.target.value });
+  };
 
+  render() {
     return (
       <div>
         <label for="newTask">Task: </label>
@@ -27,11 +27,9 @@ class Input extends Component {
           size="40"
           id="newTask"
           name="myInput"
-          value={value}
+          value={this.value}
           placeholder="Type a task here..."
-          onChange={(e) => {
-            this.setState({ value: e.target.value });
-          }}
+          onChange={this.handleChange}
         ></input>
       </div>
     );
@@ -43,8 +41,16 @@ class Submit extends Component {
     super(props);
   }
 
+  handleClick = (e) => {
+    e.preventDefault();
+  };
+
   render() {
-    return <button type="submit">Submit</button>;
+    return (
+      <button type="submit" onClick={this.handleClick}>
+        Submit
+      </button>
+    );
   }
 }
 
