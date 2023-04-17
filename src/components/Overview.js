@@ -33,15 +33,9 @@ class Submit extends Component {
     super(props);
   }
 
-  handleClick = (e) => {
-    e.preventDefault();
-    // take the current value inside the input field and save it to an array that will render it as HTML
-    // clear the input field
-  };
-
   render() {
     return (
-      <button type="button" onClick={this.handleClick}>
+      <button type="button" onClick={this.props.onClick}>
         Submit
       </button>
     );
@@ -56,7 +50,7 @@ class TaskList extends Component {
   render() {
     return (
       <div>
-        <ul>{this.props.task}</ul>
+        <ul>{this.props.taskList}</ul>
       </div>
     );
   }
