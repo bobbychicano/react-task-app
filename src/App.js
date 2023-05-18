@@ -10,10 +10,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = { value: "", list: [] };
-
-    const listItems = this.state.list.map((listItem) => {
-      return <li>{listItem}</li>;
-    });
   }
 
   handleChange = (e) => {
@@ -24,8 +20,8 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
-      value: "",
       list: this.state.list.concat(this.state.value),
+      value: "",
     });
   };
 

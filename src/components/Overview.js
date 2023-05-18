@@ -6,10 +6,6 @@ import { Component } from "react";
 import { useState } from "react";
 
 class Input extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
@@ -29,10 +25,6 @@ class Input extends Component {
 }
 
 class Submit extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <button type="button" onClick={this.props.onClick}>
@@ -43,14 +35,14 @@ class Submit extends Component {
 }
 
 class TaskList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
-        <ul>{this.props.taskList}</ul>
+        <ul>
+          {this.props.taskList.map((listItem) => {
+            return <li>{listItem}</li>;
+          })}
+        </ul>
       </div>
     );
   }
