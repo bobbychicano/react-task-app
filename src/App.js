@@ -20,7 +20,7 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
-      list: this.state.list.concat(this.state.value.text),
+      list: this.state.list.concat(this.state.value),
       value: { text: "" },
     });
   };

@@ -40,7 +40,11 @@ class TaskList extends Component {
       <div>
         <ul>
           {this.props.taskList.map((listItem) => {
-            return <li key={this.props.taskList.key}>{listItem}</li>;
+            return (
+              <li key={this.props.taskList.indexOf(listItem)}>
+                {listItem.text}
+              </li>
+            );
           })}
         </ul>
       </div>
