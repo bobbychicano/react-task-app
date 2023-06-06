@@ -15,7 +15,7 @@ class Input extends Component {
           size="40"
           id="newTask"
           name="myInput"
-          value={this.props.value}
+          value={this.props.value.text}
           placeholder="Type a task here..."
           onChange={this.props.onChange}
         ></input>
@@ -40,7 +40,7 @@ class TaskList extends Component {
       <div>
         <ul>
           {this.props.taskList.map((listItem) => {
-            return <li>{listItem}</li>;
+            return <li key={this.props.taskList.key}>{listItem}</li>;
           })}
         </ul>
       </div>
