@@ -1,11 +1,15 @@
-import { React, Component, useState } from "react";
-import { Input, Submit, TaskList } from "./components/Overview.js";
+import { React, Component } from "react";
+import { TaskList } from "./components/TaskList.js";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { value: { text: "" }, list: [] };
+    this.state = {
+      taskData: [],
+    };
   }
+
+  // { taskId: "", taskName: "" }
 
   handleChange = (e) => {
     e.preventDefault();
@@ -21,11 +25,13 @@ class App extends Component {
   };
 
   render() {
+    const taskData = this.state.taskData;
+
     return (
       <div className="App">
         <Input value={this.state.value.text} onChange={this.handleChange} />
         <Submit onClick={this.handleSubmit} />
-        <TaskList taskList={this.state.list} />
+        <TaskList tasksArray={taskData} />
       </div>
     );
   }

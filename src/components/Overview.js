@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { useState } from "react";
 
 class Input extends Component {
   render() {
@@ -31,22 +30,4 @@ class Submit extends Component {
   }
 }
 
-class TaskList extends Component {
-  render() {
-    return (
-      <div>
-        <ul>
-          {this.props.taskList.map((listItem) => {
-            return (
-              <li key={this.props.taskList.indexOf(listItem)}>
-                {listItem.text}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
-
-export { Input, Submit, TaskList };
+export { Input, Submit };
