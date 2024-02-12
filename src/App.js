@@ -1,9 +1,4 @@
-// Logic and state
-
-import { render } from "@testing-library/react";
-import React from "react";
-import { Component } from "react";
-import { useState } from "react";
+import { React, Component, useState } from "react";
 import { Input, Submit, TaskList } from "./components/Overview.js";
 
 class App extends Component {
