@@ -12,7 +12,7 @@ class TaskList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.tasksArray.length < 1 ? (
+            {!this.props.tasksArray ? (
               <tr>
                 <th></th>
                 <td></td>
@@ -24,7 +24,7 @@ class TaskList extends Component {
                 return (
                   <tr>
                     <th>{task.id}</th>
-                    <td>{task.name}}</td>
+                    <td>{task.name}</td>
                     <td>Edit</td>
                     <td>Delete</td>
                   </tr>
