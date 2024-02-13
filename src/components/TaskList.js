@@ -1,14 +1,20 @@
 import { React, Component } from "react";
+import "./TaskList.css";
 
 class TaskList extends Component {
   render() {
     return (
-      <div>
+      <div id="tasks-table">
         <h2>Task List</h2>
         <table>
           <thead>
             <tr>
-              <th>Task</th>
+              <th scope="col" colSpan={1}>
+                Task
+              </th>
+              <th scope="col" colSpan={1}>
+                Name
+              </th>
             </tr>
           </thead>
           <tbody>
