@@ -1,5 +1,6 @@
 import { React, Component } from "react";
 import TaskList from "./components/TaskList.js";
+import AddTaskForm from "./components/AddTaskForm.js";
 
 class App extends Component {
   constructor() {
@@ -31,6 +32,7 @@ class App extends Component {
       <div className="App">
         {/* <Input value={this.state.value.text} onChange={this.handleChange} />
         <Submit onClick={this.handleSubmit} /> */}
+        <AddTaskForm />
         <TaskList tasksArray={taskData} />
       </div>
     );
