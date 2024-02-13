@@ -7,14 +7,13 @@ class App extends Component {
     super();
     this.state = {
       taskData: [],
+      value: "",
     };
   }
 
-  // { taskId: "", taskName: "" }
-
   handleChange = (e) => {
     e.preventDefault();
-    this.setState({ value: { text: e.target.value } });
+    this.setState((prevState) => ({ ...prevState, value: e.target.value }));
   };
 
   handleSubmit = (e) => {
@@ -26,13 +25,14 @@ class App extends Component {
   };
 
   render() {
-    const taskData = this.state.taskData;
+    const { taskData, value } = this.state.taskData;
+    const handleChange = this.handleChange;
 
     return (
       <div className="App">
         {/* <Input value={this.state.value.text} onChange={this.handleChange} />
         <Submit onClick={this.handleSubmit} /> */}
-        <AddTaskForm />
+        <AddTaskForm textValue={value} onChange={handleChange} />
         <TaskList tasksArray={taskData} />
       </div>
     );
