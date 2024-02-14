@@ -15,24 +15,34 @@ class TaskList extends Component {
               <th scope="col" colSpan={1}>
                 Name
               </th>
+              <th scope="col" colSpan={1}></th>
+              <th scope="col" colSpan={1}></th>
             </tr>
           </thead>
           <tbody>
             {!this.props.tasksArray ? (
               <tr>
-                <th></th>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td>
+                  <button>Edit</button>
+                </td>
+                <td>
+                  <button>Delete</button>
+                </td>
               </tr>
             ) : (
               this.props.tasksArray.map((task) => {
                 return (
-                  <tr>
-                    <th>{task.id}</th>
-                    <td>{task.name}</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                  <tr key={task.id}>
+                    <td>{task.id}</td>
+                    <td>{task.taskName}</td>
+                    <td>
+                      <button>Edit</button>
+                    </td>
+                    <td>
+                      <button>Delete</button>
+                    </td>
                   </tr>
                 );
               })

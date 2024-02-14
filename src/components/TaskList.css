@@ -1,24 +1,31 @@
 #tasks-table table {
   table-layout: fixed;
-  border-collapse: collapse;
-  border: 2px solid #36454f;
+  /* border-collapse: collapse; */
+  border: 1px solid #36454f;
   border-radius: 6px;
   display: block;
-  /* max-width: 45%; */
-  width: fit-content;
+  /* width: fit-content; */
+  width: 500px;
   overflow: hidden;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
-
+#tasks-table thead {
+  border-bottom: 1px solid #36454f;
+}
 #tasks-table th,
-#tasksTable td {
+#tasks-table td {
   padding: 20px;
-  border: 1px solid #36454f;
 }
+/* #tasks-table td {
+  border: 1px solid #36454f;
+} */
 
-#tasks-table th:nth-child(1) {
+/* #tasks-table th:nth-child(1) {
   width: 25%;
 }
-
 #tasks-table th:nth-child(2) {
   width: 25%;
-}
+} */
+/* #tasks-table tr:last-child td:nth-child(1) {
+  border-bottom-left-radius: 6px;
+} */

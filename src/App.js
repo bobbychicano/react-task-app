@@ -1,6 +1,7 @@
 import { React, Component } from "react";
 import TaskList from "./components/TaskList.js";
 import AddTaskForm from "./components/AddTaskForm.js";
+import "./App.css";
 
 class App extends Component {
   constructor() {
@@ -18,21 +19,29 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      list: this.state.list.concat(this.state.value),
-      value: { text: "" },
-    });
+    this.setState((prevState) => ({
+      taskData: [
+        ...prevState.taskData,
+        { id: prevState.taskData.length + 1, taskName: this.state.value },
+      ],
+      value: "",
+    }));
   };
 
   render() {
-    const { taskData, value } = this.state.taskData;
+    const { taskData, value } = this.state;
     const handleChange = this.handleChange;
+    const handleSubmit = this.handleSubmit;
 
     return (
-      <div className="App">
+      <div id="app">
         {/* <Input value={this.state.value.text} onChange={this.handleChange} />
         <Submit onClick={this.handleSubmit} /> */}
-        <AddTaskForm textValue={value} onChange={handleChange} />
+        <AddTaskForm
+          textValue={value}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
         <TaskList tasksArray={taskData} />
       </div>
     );
