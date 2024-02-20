@@ -28,10 +28,21 @@ class App extends Component {
     }));
   };
 
+  // When you click on the delete button you want to remove it from state.
+  handleDelete = (id, e) => {
+    // e.preventDefault();
+    console.log(id);
+
+    // this.setState((prevState) => ({
+    //   ...prevState.taskData.filter((task) => task.id !== e.target.key),
+    // }));
+  };
+
   render() {
     const { taskData, value } = this.state;
     const handleChange = this.handleChange;
     const handleSubmit = this.handleSubmit;
+    const handleDelete = this.handleDelete;
 
     return (
       <div id="app">
@@ -42,7 +53,7 @@ class App extends Component {
           onChange={handleChange}
           onSubmit={handleSubmit}
         />
-        <TaskList tasksArray={taskData} />
+        <TaskList tasksArray={taskData} deleteTask={handleDelete} />
       </div>
     );
   }

@@ -8,7 +8,7 @@ class AddTaskForm extends Component {
           <h2>Add a new task</h2>
           <input
             type="text"
-            // size="40"
+            size="30"
             name="taskInput"
             value={this.props.textValue}
             placeholder="Enter a new task here..."
