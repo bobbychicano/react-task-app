@@ -34,7 +34,9 @@ class TaskList extends Component {
                     <td>{task.id}</td>
                     <td>{task.taskName}</td>
                     <td>
-                      <button>Edit</button>
+                      <button onClick={() => this.props.editTask(task.id)}>
+                        Edit
+                      </button>
                     </td>
                     <td>
                       <button onClick={() => this.props.deleteTask(task.id)}>

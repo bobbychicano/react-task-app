@@ -1,6 +1,7 @@
 import { React, Component } from "react";
 import TaskList from "./components/TaskList.js";
 import AddTaskForm from "./components/AddTaskForm.js";
+import EditForm from "./components/EditForm.js";
 import "./App.css";
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     this.state = {
       taskData: [],
       value: "",
+      editMode: false,
     };
   }
 
@@ -29,26 +31,42 @@ class App extends Component {
 
   handleDelete = (id) => {
     this.setState((prevState) => ({
+      ...prevState,
       taskData: [...prevState.taskData.filter((task) => task.id !== id)],
     }));
   };
 
+  handleEdit = (id) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      editMode: true,
+    }));
+  };
+
   render() {
-    const { taskData, value } = this.state;
+    const { taskData, value, editMode } = this.state;
     const handleChange = this.handleChange;
     const handleSubmit = this.handleSubmit;
     const handleDelete = this.handleDelete;
+    const handleEdit = this.handleEdit;
 
     return (
       <div id="app">
-        {/* <Input value={this.state.value.text} onChange={this.handleChange} />
-        <Submit onClick={this.handleSubmit} /> */}
-        <AddTaskForm
-          textValue={value}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
+        {editMode ? (
+          <EditForm />
+        ) : (
+          <AddTaskForm
+            textValue={value}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        )}
+
+        <TaskList
+          tasksArray={taskData}
+          deleteTask={handleDelete}
+          editTask={handleEdit}
         />
-        <TaskList tasksArray={taskData} deleteTask={handleDelete} />
       </div>
     );
   }
