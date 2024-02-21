@@ -9,14 +9,10 @@ class TaskList extends Component {
         <table>
           <thead>
             <tr>
-              <th scope="col" colSpan={1}>
-                Task
-              </th>
-              <th scope="col" colSpan={1}>
-                Name
-              </th>
-              <th scope="col" colSpan={1}></th>
-              <th scope="col" colSpan={1}></th>
+              <th>Task</th>
+              <th>Name</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

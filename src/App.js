@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    e.preventDefault();
     this.setState((prevState) => ({ ...prevState, value: e.target.value }));
   };
 
@@ -28,14 +27,10 @@ class App extends Component {
     }));
   };
 
-  // When you click on the delete button you want to remove it from state.
-  handleDelete = (id, e) => {
-    // e.preventDefault();
-    console.log(id);
-
-    // this.setState((prevState) => ({
-    //   ...prevState.taskData.filter((task) => task.id !== e.target.key),
-    // }));
+  handleDelete = (id) => {
+    this.setState((prevState) => ({
+      taskData: [...prevState.taskData.filter((task) => task.id !== id)],
+    }));
   };
 
   render() {
