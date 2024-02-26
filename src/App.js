@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       taskData: [],
       value: "",
-      editMode: false,
+      editMode: false,      
+      selectedTask: ,
     };
   }
 
@@ -21,6 +22,7 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
+      ...prevState,
       taskData: [
         ...prevState.taskData,
         { id: prevState.taskData.length + 1, taskName: this.state.value },
@@ -53,7 +55,7 @@ class App extends Component {
     return (
       <div id="app">
         {editMode ? (
-          <EditForm />
+          <EditForm taskData={taskData} editMode={editMode} />
         ) : (
           <AddTaskForm
             textValue={value}
