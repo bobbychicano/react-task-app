@@ -34,7 +34,7 @@ class TaskList extends Component {
                     <td>{task.id}</td>
                     <td>{task.taskName}</td>
                     <td>
-                      <button onClick={() => this.props.editTask(task.id)}>
+                      <button onClick={() => this.props.editTask(task)}>
                         Edit
                       </button>
                     </td>

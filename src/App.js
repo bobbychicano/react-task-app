@@ -10,8 +10,8 @@ class App extends Component {
     this.state = {
       taskData: [],
       value: "",
-      editMode: false,      
-      selectedTask: ,
+      editMode: false,
+      selectedTask: {},
     };
   }
 
@@ -38,24 +38,43 @@ class App extends Component {
     }));
   };
 
-  handleEdit = (id) => {
+  handleEdit = (task) => {
     this.setState((prevState) => ({
       ...prevState,
       editMode: true,
+      selectedTask: { id: task.id, taskName: task.taskName },
     }));
   };
 
+  // handleSave = () => {
+  //   this.setState((...prevState) => ({
+  //     ...prevState,
+  //     taskData: [
+  //       ...prevState.taskData,
+  //       (id: .taskName: ""),
+  //     ],
+  //     editMode: false,
+  //     selectedTask: {},
+  //   }));
+  // };
+
   render() {
-    const { taskData, value, editMode } = this.state;
+    const { taskData, value, editMode, selectedTask } = this.state;
     const handleChange = this.handleChange;
     const handleSubmit = this.handleSubmit;
     const handleDelete = this.handleDelete;
     const handleEdit = this.handleEdit;
+    const handleSave = this.handleSave;
 
     return (
       <div id="app">
         {editMode ? (
-          <EditForm taskData={taskData} editMode={editMode} />
+          <EditForm
+            taskData={taskData}
+            editMode={editMode}
+            selectedTask={selectedTask}
+            onSave={handleSave}
+          />
         ) : (
           <AddTaskForm
             textValue={value}

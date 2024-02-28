@@ -1,9 +1,12 @@
 import { React, Component } from "react";
 
 class EditForm extends Component {
-  constructor() {
-    super();
-    this.state = { textValue: "", editMode: this.props.editMode };
+  constructor(props) {
+    super(props);
+    this.state = {
+      textValue: props.selectedTask.taskName,
+      editMode: props.editMode,
+    };
   }
 
   handleChange = (e) => {
@@ -13,21 +16,17 @@ class EditForm extends Component {
     }));
   };
 
-  handleSave = () => {
-    this.setState({ editMode: false });
-  };
-
   render() {
     return (
       <div id="edit-form">
-        <form noValidate={true} onSubmit={this.handleSave}>
+        <form noValidate={true} onSubmit={this.props.handleSave}>
           <h2>Edit task</h2>
           <label>Current task being edited</label>
           <input
             type="text"
             name="editInput"
-            value={this.props.initialValue}
-            onChange={this.handleChange}
+            value={this.state.textValue}
+            onChange={this.state.handleChange}
           ></input>
           <button>Save</button>
         </form>
