@@ -4,29 +4,32 @@ class EditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textValue: props.selectedTask.taskName,
-      editMode: props.editMode,
+      editTextValue: this.props.selectedTask.taskName,
     };
   }
 
-  handleChange = (e) => {
-    this.setState((...prevState) => ({
-      ...prevState,
-      textValue: e.target.value,
-    }));
+  handleEditChange = (e) => {
+    this.setState({
+      editTextValue: e.target.value,
+    });
   };
 
   render() {
     return (
       <div id="edit-form">
-        <form noValidate={true} onSubmit={this.props.handleSave}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.props.onSave(this.state.editTextValue);
+          }}
+        >
           <h2>Edit task</h2>
-          <label>Current task being edited</label>
+
           <input
             type="text"
             name="editInput"
-            value={this.state.textValue}
-            onChange={this.state.handleChange}
+            value={this.state.editTextValue}
+            onChange={this.handleEditChange}
           ></input>
           <button>Save</button>
         </form>

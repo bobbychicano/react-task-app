@@ -55,5 +55,3 @@ class TaskList extends Component {
 }
 
 export default TaskList;
-
-// Will pass an array of tasks (from state) to be rendered by the task list component

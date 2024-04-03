@@ -7,6 +7,7 @@ import "./App.css";
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       taskData: [],
       value: "",
@@ -38,25 +39,30 @@ class App extends Component {
     }));
   };
 
-  handleEdit = (task) => {
+  handleEdit = (taskFromChild) => {
     this.setState((prevState) => ({
       ...prevState,
       editMode: true,
-      selectedTask: { id: task.id, taskName: task.taskName },
+      selectedTask: { id: taskFromChild.id, taskName: taskFromChild.taskName },
     }));
   };
 
-  // handleSave = () => {
-  //   this.setState((...prevState) => ({
-  //     ...prevState,
-  //     taskData: [
-  //       ...prevState.taskData,
-  //       (id: .taskName: ""),
-  //     ],
-  //     editMode: false,
-  //     selectedTask: {},
-  //   }));
-  // };
+  //kept getting a typeError that map couldnt be run on undefined because I included the spread operator in the very first variable for this.setState. So '...prevState' instead of 'prevState'.
+  handleSave = (taskFromEdit) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      taskData: [
+        ...prevState.taskData.map((taskObject) => {
+          if (taskObject.id === this.state.selectedTask.id) {
+            return { id: taskObject.id, taskName: taskFromEdit };
+          }
+          return taskObject;
+        }),
+      ],
+      editMode: false,
+      selectedTask: {},
+    }));
+  };
 
   render() {
     const { taskData, value, editMode, selectedTask } = this.state;
