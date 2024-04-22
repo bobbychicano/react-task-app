@@ -3,6 +3,7 @@ import TaskList from "./components/TaskList.js";
 import AddTaskForm from "./components/AddTaskForm.js";
 import EditForm from "./components/EditForm.js";
 import "./App.css";
+import ToyotaSripes from "./assets/toyota-classic-heritage-stripes-small.jpg";
 
 class App extends Component {
   constructor() {
@@ -74,6 +75,19 @@ class App extends Component {
 
     return (
       <div id="app">
+        <div class="title-elements">
+          <div class="toyota-container">
+            <div class="logo">
+              <img src={ToyotaSripes} alt="" />
+            </div>
+            <div class="app-title">
+              <h1>TOYOTA</h1>
+              <h2>Task List</h2>
+            </div>
+          </div>
+          <p class="vehicle-info">2000 Toyota 4Runner SR5 V6 2WD</p>
+        </div>
+
         {editMode ? (
           <EditForm
             taskData={taskData}

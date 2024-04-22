@@ -5,7 +5,7 @@ class TaskList extends Component {
   render() {
     return (
       <div id="tasks-table">
-        <h2>Task List</h2>
+        <h2>Current Tasks</h2>
         <table>
           <thead>
             <tr>

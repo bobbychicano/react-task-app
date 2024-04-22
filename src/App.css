@@ -10,3 +10,28 @@
   display: flex;
   gap: 50px;
 }
+/* #app .title-elements {
+  display: flex;
+} */
+#app .toyota-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#app h1,
+#app h2,
+#app h3 {
+  margin: 0;
+}
+#app p.vehicle-info {
+  font-style: italic;
+}
+#app .logo {
+  height: 100%;
+  display: flex;
+}
+#app .logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
