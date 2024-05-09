@@ -75,17 +75,18 @@ class App extends Component {
 
     return (
       <div id="app">
-        <div class="title-elements">
-          <div class="toyota-container">
-            <div class="logo">
+        <div className="title-elements">
+          <div className="toyota-container">
+            <div className="logo">
               <img src={ToyotaSripes} alt="" />
             </div>
-            <div class="app-title">
-              <h1>TOYOTA</h1>
-              <h2>Task List</h2>
-            </div>
+
+            <h1>TOYOTA</h1>
           </div>
-          <p class="vehicle-info">2000 Toyota 4Runner SR5 V6 2WD</p>
+          <div className="app-title">
+            <h2>Project Car Task List</h2>
+            <p className="vehicle-info">2000 Toyota 4Runner SR5 V6 2WD</p>
+          </div>
         </div>
 
         {editMode ? (

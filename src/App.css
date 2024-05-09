@@ -8,20 +8,21 @@
   padding: 0;
 
   display: flex;
-  gap: 50px;
+  gap: 35px;
 }
-/* #app .title-elements {
-  display: flex;
-} */
 #app .toyota-container {
   display: flex;
   align-items: center;
   text-align: center;
 }
 #app h1,
-#app h2,
 #app h3 {
   margin: 0;
+}
+#app .app-title h2 {
+  font-size: 22px;
+  font-weight: normal;
+  letter-spacing: 0.5px;
 }
 #app p.vehicle-info {
   font-style: italic;

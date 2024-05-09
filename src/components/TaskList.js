@@ -10,7 +10,7 @@ class TaskList extends Component {
           <thead>
             <tr>
               <th>Task</th>
-              <th>Name</th>
+              <th>Description</th>
               <th></th>
               <th></th>
             </tr>

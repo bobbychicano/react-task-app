@@ -1,0 +1,27 @@
+#addTask h2 {
+  letter-spacing: 0.5px;
+  font-size: 22px;
+}
+
+#addTask input {
+  box-sizing: border-box;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  padding: 0.25rem;
+}
+
+#addTask button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1.25px solid;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #c0c0c0;
+  transition-duration: 0.2s;
+}
+
+#addTask button:hover {
+  box-shadow: none;
+  transition-duration: 0.2s;
+}
