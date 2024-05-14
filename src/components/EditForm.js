@@ -32,6 +32,7 @@ class EditForm extends Component {
             onChange={this.handleEditChange}
           ></input>
           <button>Save</button>
+          <button onClick={this.props.cancelEdit}>Cancel</button>
         </form>
       </div>
     );

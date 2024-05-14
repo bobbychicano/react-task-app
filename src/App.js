@@ -48,6 +48,13 @@ class App extends Component {
     }));
   };
 
+  cancelEdit = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      editMode: false,
+    }));
+  };
+
   //kept getting a typeError that map couldnt be run on undefined because I included the spread operator in the very first variable for this.setState. So '...prevState' instead of 'prevState'.
   handleSave = (taskFromEdit) => {
     this.setState((prevState) => ({
@@ -72,6 +79,7 @@ class App extends Component {
     const handleDelete = this.handleDelete;
     const handleEdit = this.handleEdit;
     const handleSave = this.handleSave;
+    const cancelEdit = this.cancelEdit;
 
     return (
       <div id="app">
@@ -95,6 +103,7 @@ class App extends Component {
             editMode={editMode}
             selectedTask={selectedTask}
             onSave={handleSave}
+            cancelEdit={cancelEdit}
           />
         ) : (
           <AddTaskForm
