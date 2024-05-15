@@ -8,6 +8,12 @@ class EditForm extends Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedTask !== prevProps.selectedTask) {
+      this.setState({ editTextValue: this.props.selectedTask.taskName });
+    }
+  }
+
   handleEditChange = (e) => {
     this.setState({
       editTextValue: e.target.value,
